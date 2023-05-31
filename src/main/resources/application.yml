@@ -1,0 +1,21 @@
+server:
+  port: 8500
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /stock-monitor
+  endpoint:
+    shutdown:
+      enabled: true
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
