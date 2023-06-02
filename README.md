@@ -10,3 +10,7 @@ docker run -d -p 8500:8500 --name java-app-stock stock/java
 docker build -t stock/angular angular-stock-price/.
 # Run docker angular app on port 80 in nginx 
 docker run -d -it -p 80:80/tcp --name angular-app-stock stock/angular:latest
+# UI Application URL
+[localhost:80](http://localhost/)
+# API url
+ws://localhost:8500/stocks
