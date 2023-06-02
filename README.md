@@ -1,21 +1,12 @@
-# marketdata-websocket
-Este projeto consiste no módulo marketdata-websocket do diagrama de arquitetura abaixo e tem como função disponibilizar um endpoint websocket para receber e fornecer as cotações de um ativo financeiro em tempo real.
-O módulo publisher-marketdata está conectado a um broker através de um DDE server que fornece as cotações em tempo real. 
-
-O módulo publisher-marketdata por sua vez publica as cotações recebidas no websocket /topic/marketdata que fará broadcast dos dados recebidos para quem der subscribe no endpoint websocket.
-
-# Diagrama de Arquitetura
-<a href="http://ec2-15-228-11-114.sa-east-1.compute.amazonaws.com:8082/" target="_blank">![Alt text](MarketdataWebsocket.png?raw=true "Ir para Aplicação")</a>
-
-# Demo
-<a href="http://ec2-15-228-11-114.sa-east-1.compute.amazonaws.com:8082/" target="_blank">http://ec2-15-228-11-114.sa-east-1.compute.amazonaws.com:8082</a>
-
-
-# Conceitos abordados:<br/>
-
-<ul>
-  <li>Implementação de Websocket no SpringBoot</li>
-  <li>Implementação de indicador em linguagem MQL5 (Subset of C++) da Metaquotes</li>
-  <li>Dynamic Data Exchange - DDE</li>
-</ul>
-<br/>
+#Get Code
+https://github.com/VBINDIA/StockPrice
+# maven build for springboot app
+mvn clean install
+#Create Docker image
+docker build -t stock/java .
+#Run docker springboot app on port 8500
+docker run -d -p 8500:8500 --name java-app-stock stock/java
+# Create angular app image
+docker build -t stock/angular angular-stock-price/.
+#Run docker angular app on port 80 in nginx 
+docker run -d -it -p 80:80/tcp --name angular-app-stock stock/angular:latest
