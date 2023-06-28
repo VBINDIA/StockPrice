@@ -13,7 +13,7 @@ stages {
         }
         stage('Run docker springboot') {
             steps {
-                sh 'docker stop java-app-stock docker rm java-app-stock docker run -d -p 8500:8500 --name java-app-stock stock/java'
+                bat 'docker stop java-app-stock docker rm java-app-stock docker run -d -p 8500:8500 --name java-app-stock stock/java'
             }
         }
 
